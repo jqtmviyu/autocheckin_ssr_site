@@ -28,7 +28,7 @@ const main = () => {
       checkin()
     }, Math.random() * 10 * 60 * 1000)
   })
-  // .invoke()
+  // .invoke() // 测试用, 立即执行任务
 }
 
 console.log(`开始执行任务-${getNowTime()}`)
