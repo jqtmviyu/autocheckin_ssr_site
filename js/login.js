@@ -9,7 +9,7 @@ const toml = require('@iarna/toml')
 const login = async oldConfig => {
   console.log('登录过期, 重新登录中...')
   const { loginUrl, email, password } = oldConfig
-  const data = qs.stringify({ email, passwd: password })
+  const data = qs.stringify({ email, passwd: password, remember_me: 'on' })
   const headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
     'sec-ch-ua': oldConfig.headers['sec-ch-ua'],
@@ -34,14 +34,7 @@ const login = async oldConfig => {
       cookieObj = Object.assign(cookieObj, cookie.parse(item))
     })
     const cookieStr = qs.stringify(
-      {
-        lang: 'zh-cn',
-        udi: cookieObj.uid,
-        email: cookieObj.email,
-        key: cookieObj.key,
-        ip: cookieObj.ip,
-        expire_in: cookieObj['expire_in'],
-      },
+      cookieObj,
       { delimiter: '; ' }
     )
     const newConfig = JSON.parse(JSON.stringify(oldConfig))
