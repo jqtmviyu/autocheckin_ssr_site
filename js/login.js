@@ -25,9 +25,9 @@ const login = async oldConfig => {
     maxRedirects: 0,
     timeout: 10000,
   })
-  console.log('res', res)
+  // console.log('res', res)
   if (res.status == 200) {
-    console.log('res.data.msg', res.data.msg)
+    // console.log('res.data.msg', res.data.msg)
     let cookieObj = {}
     const setCookie = res.headers['set-cookie'] // array
     setCookie.forEach(item => {
@@ -44,7 +44,7 @@ const login = async oldConfig => {
     if (newConfig.headers.expire_in) {
       newConfig.headers['expire_in'] = cookieObj['expire_in']
     }
-    console.log('newConfig', newConfig)
+    // console.log('newConfig', newConfig)
     updateConfig(newConfig) // 异步更新
     return newConfig
   }
