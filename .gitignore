@@ -1,2 +1,3 @@
 node_modules
-*.toml
+config/accounts.js
+config/notify.js

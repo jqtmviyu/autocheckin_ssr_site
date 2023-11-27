@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "ssr",
+      "script": "src/app.js",
+      "cron_restart": "0 23 * * *",
+      "autorestart": true,
+      "max_restarts": 1
+    }
+  ]
+}
